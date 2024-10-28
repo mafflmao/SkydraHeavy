@@ -1,0 +1,19 @@
+namespace LibSkydra
+{
+	//I'm praying this stays the same on all verions lol
+	public enum IG_GFX_TEXTURE_FILTER : uint
+	{
+		NEAREST = 0,
+		NEAREST_MIPMAP_NONE = 0,		//??
+		LINEAR = 1,
+		LINEAR_MIPMAP_NONE = 1,			//??
+		NEAREST_MIPMAP_NEAREST = 2,
+		NEAREST_MIPMAP_LINEAR = 3,
+		LINEAR_MIPMAP_NEAREST = 4,
+		LINEAR_MIPMAP_LINEAR = 5,
+		ANISOTROPIC = 6,
+		ANISOTROPIC_MIPMAP_NONE = 6,	//??
+		ANISOTROPIC_MIPMAP_NEAREST = 7,
+		ANISOTROPIC_MIPMAP_LINEAR = 8
+	}
+}

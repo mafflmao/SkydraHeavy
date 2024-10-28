@@ -1,0 +1,26 @@
+# Build Folders
+
+LibSkydra/bin
+LibSkydra/obj
+Skydra/bin
+Skydra/obj
+SkydraLite/bin
+SkydraLite/obj
+
+# IDE Files & Folders
+
+.vscode
+.vs
+
+# Game Files
+
+*.arc
+*.bld
+*.igz
+*.igx
+
+# Asset Output Files/Test File Extensions
+
+*.dds
+*.dat
+*.obj

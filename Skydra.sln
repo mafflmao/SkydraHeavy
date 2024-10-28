@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skydra", "Skydra\Skydra.csproj", "{EC7C3694-FEAA-49A3-A353-EB11CDAA2CE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibSkydra", "LibSkydra\LibSkydra.csproj", "{CA71849D-2BCD-4138-9062-73DF7E87BD83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydraLite", "SkydraLite\SkydraLite.csproj", "{561F74D9-B88A-4260-9C30-8B579C0EFF7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC7C3694-FEAA-49A3-A353-EB11CDAA2CE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC7C3694-FEAA-49A3-A353-EB11CDAA2CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC7C3694-FEAA-49A3-A353-EB11CDAA2CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC7C3694-FEAA-49A3-A353-EB11CDAA2CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA71849D-2BCD-4138-9062-73DF7E87BD83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA71849D-2BCD-4138-9062-73DF7E87BD83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA71849D-2BCD-4138-9062-73DF7E87BD83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA71849D-2BCD-4138-9062-73DF7E87BD83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{561F74D9-B88A-4260-9C30-8B579C0EFF7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{561F74D9-B88A-4260-9C30-8B579C0EFF7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{561F74D9-B88A-4260-9C30-8B579C0EFF7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{561F74D9-B88A-4260-9C30-8B579C0EFF7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

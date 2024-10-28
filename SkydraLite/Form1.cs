@@ -22,6 +22,9 @@ namespace SkydraLite
             InitializeComponent();
             OnResize(null, null);
 
+            // uhhhhhhhhhhhhhhhhhh
+            tree.AfterExpand += OnNodeExpand;
+
             if (args.Length != 0)
             {
                 FileStream fs = File.Open(args[0], FileMode.Open);
@@ -85,6 +88,24 @@ namespace SkydraLite
                 PopulateObjectNode(nodeObjects.Nodes.Cast<TreeNode>().Last(), igz.objectList.tdata[i]);
             }
         }
+
+        private void OnNodeExpand(object sender, TreeViewEventArgs e)
+        {
+            TreeNode node = e.Node;
+
+            // only load children when needed
+            if (node.Nodes.Count == 1 && node.Nodes[0].Text == "CHILD PLACEHOLDER!!")
+            {
+                node.Nodes.Clear(); // remove the placeholder
+
+                // find the igObject and load its children
+                int index = int.Parse(node.Text.Split(':')[0], System.Globalization.NumberStyles.HexNumber);
+                igObject currentObject = igz.objects.Values.ElementAt(index);
+
+                PopulateObjectNode(node, currentObject);
+            }
+        }
+
         public igObject[] PredictChildren(igObject obj)
         {
             List<igObject> children = new List<igObject>();
@@ -114,18 +135,21 @@ namespace SkydraLite
         {
             igObject[] children = PredictChildren(currentObject);
 
-            for (int i = 0; i < children.Length; i++)
+            foreach (var child in children)
             {
-                string name = string.Empty;
-                if (children[i].GetType().GetField("name") != null)
+                string name = child.GetType().GetField("name")?.GetValue(child)?.ToString() ?? string.Empty;
+                TreeNode childNode = new TreeNode($"{GetObjectIndex(child):X04}: {igz.typeNames[(int)child.typeIndex]}{(name != string.Empty ? " : " + name : name)}");
+
+                // add a dummy node to show it has children
+                if (PredictChildren(child).Length > 0)
                 {
-                    name = $"{(children[i].GetType().GetField("name").GetValue(children[i]))}";
+                    childNode.Nodes.Add(new TreeNode("CHILD PLACEHOLDER!!"));
                 }
 
-                TreeNode childNode = currentNode.Nodes.Add($"{GetObjectIndex(children[i]).ToString("X04")}: {igz.typeNames[(int)children[i].typeIndex]} {(name != string.Empty ? " : " + name : name)}");
-                PopulateObjectNode(childNode, children[i]);
+                currentNode.Nodes.Add(childNode);
             }
         }
+
         public int GetObjectIndex(igObject obj)
         {
             return Array.FindIndex<KeyValuePair<ulong, igObject>>(igz.objects.ToArray(), x => x.Value == obj);
